@@ -1,0 +1,17 @@
+#!/bin/sh
+
+case $BUTTON in
+  6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+# Get available languages
+IFS=', :' eval 'langs=($(setxkbmap -query |grep layout))'
+unset IFS
+export langs=("${langs[@]:1:2}")
+
+# Get current languege index
+layout_idx=$(xset -q | grep -A 0 'LED' | cut -c63-63)
+
+# return current language
+printf " ;  ${langs[$layout_idx]}  ; "
+
