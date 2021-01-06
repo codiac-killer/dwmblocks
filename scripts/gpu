@@ -9,4 +9,4 @@ esac
 
 GPU_TEMP=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits)
 
-printf " ;  🚀+${GPU_TEMP}°C  ; "
+printf "  +${GPU_TEMP}°C   "
